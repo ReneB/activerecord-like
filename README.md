@@ -1,12 +1,14 @@
 # ActiveRecord::Like
 
-TODO: Write a gem description
+An ActiveRecord Plugin that allows chaining a more DSL-style 'like' or 'not-like' query to an ActiveRecord::Base#where. Requires Rails 4 beta or higher.
+
+This plugin has been salvaged from the stellar work done by @amatsuda and @claudiob. Most of the code was previously in ActiveRecord master, but was subsequently removed due to, amongst other, scope creep.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'active_record-like'
+    gem 'activerecord-like'
 
 And then execute:
 
@@ -14,11 +16,21 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install active_record-like
+    $ gem install activerecord-like
 
 ## Usage
 
-TODO: Write usage instructions here
+Given a class Post, the WhereChain work in ActiveRecord, combined with this plugin, allow code like:
+
+Post.where.like(title: "%rails%")
+
+and
+
+Post.where.not_like(title: "%rails%")
+
+## TODO
+
+Use some sensible markup for this document
 
 ## Contributing
 
