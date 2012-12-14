@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in active_record-like.gemspec
+gem 'activerecord-deprecated_finders', github: 'rails/activerecord-deprecated_finders'
+gem 'activerecord', github: 'rails/rails'
+
 gemspec
