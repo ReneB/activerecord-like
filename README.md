@@ -20,17 +20,13 @@ Or install it yourself as:
 
 ## Usage
 
-Given a class Post, the WhereChain work in Active Record, combined with this plugin, allow code like:
+Given a class Post and the WhereChain work in Active Record, this plugin allows code like:
 
-Post.where.like(title: "%rails%")
+    Post.where.like(title: "%rails%")
 
 and
 
-Post.where.not_like(title: "%rails%")
-
-## TODO
-
-Use some sensible markup for this document
+    Post.where.not_like(title: "%rails%")
 
 ## Contributing
 
