@@ -10,7 +10,7 @@ describe ActiveRecord::QueryMethods::WhereChain do
 
     describe "the Arel Node" do
       before do
-        @attribute = :title
+        @attribute = "title"
         @value = '%value%'
 
         @relation_specifier = Post.where.like(@attribute => @value).where_values.first
