@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'activerecord', '>= 4.0.0.rc1'
+gem 'activerecord', '>= 4.0.0'
 
 gemspec

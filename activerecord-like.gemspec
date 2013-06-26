@@ -18,5 +18,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency "minitest",     ">= 3"
   gem.add_development_dependency "sqlite3",      "~> 1.3"
 
-  gem.add_dependency             "activerecord", "~> 4.0.0.beta"
+  gem.add_dependency             "activerecord", ">= 4.0.0"
 end
