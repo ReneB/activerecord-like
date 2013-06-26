@@ -1,5 +1,7 @@
 # ActiveRecord::Like
 
+[![Code Climate](https://codeclimate.com/github/ReneB/activerecord-like.png)](https://codeclimate.com/github/ReneB/activerecord-like)
+
 An Active Record Plugin that allows chaining a more DSL-style 'like' or 'not-like' query to an ActiveRecord::Base#where. Requires Rails 4 beta or higher.
 
 This plugin has been salvaged from the stellar work done by @amatsuda and @claudiob. Most of the code was previously in Active Record master, but was subsequently removed due to, amongst other, scope creep.
