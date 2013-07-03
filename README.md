@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/ReneB/activerecord-like.png)](https://travis-ci.org/ReneB/activerecord-like)
 [![Code Climate](https://codeclimate.com/github/ReneB/activerecord-like.png)](https://codeclimate.com/github/ReneB/activerecord-like)
+[![Dependency Status](https://gemnasium.com/ReneB/activerecord-like.png)](https://gemnasium.com/ReneB/activerecord-like)
 
 An Active Record Plugin that allows chaining a more DSL-style 'like' or 'not-like' query to an ActiveRecord::Base#where. Requires Rails 4 beta or higher.
 
