@@ -24,6 +24,12 @@ describe ActiveRecord::QueryMethods::WhereChain do
       lowercase_posts.map(&:id).must_equal(uppercase_posts.map(&:id))
     end
 
+    it "is chainable" do
+      Post.where.not_like(title: '%there?').order(:title).update_all(title: 'some title')
+
+      Post.find(1).title.must_equal('some title')
+    end
+
     it "does not find records with attributes matching the criteria" do
       Post.where.not_like(title: '%this title is not used anywhere%').map(&:id).must_include 2
     end
