@@ -7,6 +7,8 @@ group :test do
 
   gem 'sqlite3'
 
+  gem 'pg'
+
   gem 'minitest', '>= 3'
 end
 
