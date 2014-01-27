@@ -1,6 +1,6 @@
 # ActiveRecord::Like
 
-[![Build Status](https://travis-ci.org/ReneB/activerecord-like.png)](https://travis-ci.org/ReneB/activerecord-like)
+[![Build Status](https://travis-ci.org/ReneB/activerecord-like.png?branch=master)](https://travis-ci.org/ReneB/activerecord-like)
 [![Code Climate](https://codeclimate.com/github/ReneB/activerecord-like.png)](https://codeclimate.com/github/ReneB/activerecord-like)
 [![Dependency Status](https://gemnasium.com/ReneB/activerecord-like.png)](https://gemnasium.com/ReneB/activerecord-like)
 
