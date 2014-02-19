@@ -16,4 +16,5 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
 
   gem.add_dependency             "activerecord", ">= 4.0.0"
+  gem.add_dependency             "arel",         ">= 4.0.2"
 end
