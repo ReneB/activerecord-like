@@ -5,31 +5,42 @@ require 'active_record/like'
 
 module Test
   module Postgres
-    def setup_db
-      database = 'activerecord_like_test'
+    def connect_db
+      ActiveRecord::Base.establish_connection(postgres_config)
+    end
 
-      postgres_config = {
-        adapter:   'postgresql',
-        database:  database,
-        username:  'postgres'
-      }
-
+    def drop_and_create_database
       # drops and create need to be performed with a connection to the 'postgres' (system) database
       temp_connection = postgres_config.merge(database: 'postgres', schema_search_path: 'public')
       ActiveRecord::Base.establish_connection(temp_connection)
 
       # drop the old database (if it exists)
-      ActiveRecord::Base.connection.drop_database(database) rescue nil
+      ActiveRecord::Base.connection.drop_database(database_name) rescue nil
 
       # create new
-      ActiveRecord::Base.connection.create_database(database)
-      ActiveRecord::Base.establish_connection(postgres_config)
+      ActiveRecord::Base.connection.create_database(database_name)
+    end
+
+    def postgres_config
+      @postgres_config ||= {
+        adapter:   'postgresql',
+        database:  database_name,
+        username:  'postgres'
+      }
+    end
+
+    def database_name
+      'activerecord_like_test'
     end
   end
 
   module SQLite3
-    def setup_db
+    def connect_db
       ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: ':memory:')
+    end
+
+    def drop_and_create_database
+      # NOOP for SQLite3
     end
   end
 end
@@ -44,7 +55,11 @@ else
   include Test::SQLite3
 end
 
-setup_db
+unless ENV['TRAVIS'] # if we're running on Travis, no drop/create needed
+  drop_and_create_database
+end
+
+connect_db
 
 ActiveRecord::Schema.verbose = false
 ActiveRecord::Schema.define do

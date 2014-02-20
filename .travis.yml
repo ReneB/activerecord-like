@@ -6,3 +6,5 @@ rvm:
 env:
   - DB=pg
   - DB=sqlite3
+before_script:
+  - psql -c 'create database activerecord_like_test' -U postgres
