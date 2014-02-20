@@ -43,6 +43,41 @@ module Test
       # NOOP for SQLite3
     end
   end
+
+  module MySQL
+    def connect_db
+      ActiveRecord::Base.establish_connection(mysql_config)
+    end
+
+    def drop_and_create_database
+      temp_connection = mysql_config.merge(database: 'mysql')
+
+      ActiveRecord::Base.establish_connection(temp_connection)
+
+      # drop the old database (if it exists)
+      ActiveRecord::Base.connection.drop_database(database_name) rescue nil
+
+      # create new
+      ActiveRecord::Base.connection.create_database(database_name)
+    end
+
+    def mysql_config
+      @mysql_config ||= {
+        adapter:   'mysql2',
+        database:  database_name,
+        username:  db_user_name,
+      }
+    end
+
+    def db_user_name
+      # change this to whatever your config requires
+      ENV['TRAVIS'] ? 'travis' : 'root'
+    end
+
+    def database_name
+      'activerecord_like_test'
+    end
+  end
 end
 
 case ENV['DB']
@@ -50,6 +85,8 @@ when 'pg'
   include Test::Postgres
 when 'sqlite3'
   include Test::SQLite3
+when 'mysql'
+  include Test::MySQL
 else
   puts "No DB environment variable provided, testing using SQLite3"
   include Test::SQLite3

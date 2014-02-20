@@ -8,6 +8,8 @@ group :test do
   case ENV['DB']
   when 'pg'
     gem 'pg'
+  when 'mysql'
+    gem 'mysql2'
   else
     gem 'sqlite3'
   end

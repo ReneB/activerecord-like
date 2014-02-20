@@ -36,7 +36,7 @@ describe ActiveRecord::QueryMethods::WhereChain do
 
     describe "security-related behavior"  do
       before do
-        @user_input = "unused%' OR 1=1); --"
+        @user_input = "unused%' OR 1=1); -- "
       end
 
       # This test is only here to provide the contrast for the test below
