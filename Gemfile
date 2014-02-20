@@ -5,7 +5,12 @@ gem 'activerecord', '>= 4.0.0'
 group :test do
   gem 'rake'
 
-  gem 'sqlite3'
+  case ENV['DB']
+  when 'pg'
+    gem 'pg'
+  else
+    gem 'sqlite3'
+  end
 
   gem 'minitest', '>= 3'
 end
