@@ -2,7 +2,7 @@ language: ruby
 cache: bundler
 rvm:
   - 1.9.3
-  - rbx-2.1.1
+  - rbx
 env:
   - DB=pg
   - DB=sqlite3
