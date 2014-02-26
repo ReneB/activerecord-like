@@ -5,6 +5,8 @@
 [![Dependency Status](https://gemnasium.com/ReneB/activerecord-like.png)](https://gemnasium.com/ReneB/activerecord-like)
 [![Gem Version](https://badge.fury.io/rb/activerecord-like.png)](http://badge.fury.io/rb/activerecord-like)
 
+[activerecord-like on Github](https://github.com/ReneB/activerecord-like)
+
 An Active Record Plugin that allows chaining a more DSL-style 'like' or 'not-like' query to an ActiveRecord::Base#where. Requires Rails 4 beta or higher.
 
 This plugin has been salvaged from the stellar work done by @amatsuda and @claudiob. Most of the code was previously in Active Record master, but was subsequently removed due to, amongst other, scope creep.
