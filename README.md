@@ -39,6 +39,9 @@ and
 Post.where.not_like(title: "%rails%")
 ```
 
+## Dependencies
+Does not work with ARel 4.0.1 or lower or ARel 5.0.0. Do a `bundle update arel` to get the latest ARel that is compatible with your ActiveRecord version (4.0 for ActiveRecord 4.0, 5.0 for ActiveRecord 4.1).
+
 ## Contributing
 
 1. Fork it
