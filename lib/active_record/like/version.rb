@@ -1,5 +1,5 @@
 module ActiveRecord
   module Like
-    VERSION = "0.0.5.dev"
+    VERSION = "0.0.6.dev"
   end
 end
