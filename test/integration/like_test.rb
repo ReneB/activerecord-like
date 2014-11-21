@@ -34,6 +34,20 @@ describe ActiveRecord::QueryMethods::WhereChain do
       Post.where.like(title: '%this title is not used anywhere%').map(&:id).wont_include 2
     end
 
+    describe "array behavior" do
+      it "finds records with attributes matching multiple criteria" do
+        Post.where.like(title: ['%DSLs%', 'We need some%']).map(&:id).must_equal [1, 2]
+      end
+
+      it "finds records with attributes matching one criterion" do
+        Post.where.like(title: ['%there?']).map(&:id).must_equal [2]
+      end
+
+      it "does not find any records with an empty array" do
+        Post.where.like(title: []).must_be_empty
+      end
+    end
+
     describe "security-related behavior"  do
       before do
         @user_input = "unused%' OR 1=1); -- "
@@ -48,6 +62,10 @@ describe ActiveRecord::QueryMethods::WhereChain do
 
       it "prevents SQL injection" do
         Post.where.like(title: @user_input).count.must_equal(0)
+      end
+
+      it "prevents SQL injection when provided an array" do
+        Post.where.like(title: [@user_input]).count.must_equal(0)
       end
     end
   end
