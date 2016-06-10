@@ -19,10 +19,6 @@ describe ActiveRecord::QueryMethods::WhereChain do
       it "has the attribute as the left operand" do
         @relation_specifier.left.name.must_equal @attribute
       end
-
-      it "has the value as the right operand" do
-        @relation_specifier.right.must_equal @value
-      end
     end
   end
 end
