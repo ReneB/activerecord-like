@@ -4,6 +4,12 @@ module ActiveRecord
   module QueryMethods
     module Like
       def like(opts, *rest)
+        opts.each do |k,v|
+          if v.is_a?(Array) && v.empty?
+            opts[k] = ''
+          end
+        end
+
         chain_node(Arel::Nodes::Matches, opts, *rest) do |nodes|
           nodes.inject { |memo, node| Arel::Nodes::Or.new(memo, node) }
         end
