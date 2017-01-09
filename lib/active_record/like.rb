@@ -1,8 +1,8 @@
 require "active_record"
 
 module ActiveRecord
-  module QueryMethods
-    module Like
+  module Like
+    module WhereChainExtensions
       def like(opts, *rest)
         opts.each do |k,v|
           if v.is_a?(Array) && v.empty?
@@ -22,17 +22,30 @@ module ActiveRecord
         end
       end
 
-    private
+      private
 
       def chain_node(node_type, opts, *rest, &block)
         @scope.tap do |s|
-          s.where_values += s.send(:build_where, opts, *rest).map do |r|
-            if r.right.is_a?(Array)
-              nodes = r.right.map { |expr| node_type.new(r.left, expr) }
+          # Assuming `opts` to be `Hash`
+          opts.each_pair do |key, value|
+            # 1. Build a where clause to generate "predicates" & "binds"
+            # 2. Convert "predicates" into the one that matches `node_type` (like/not like)
+            # 3. Re-use binding values to create new where clause
+            equal_where_clause = s.send(:where_clause_factory).build({key => value}, rest)
+            equal_where_clause_predicate = equal_where_clause.send(:predicates).first
+
+            new_predicate = if equal_where_clause_predicate.right.is_a?(Array)
+              nodes = equal_where_clause_predicate.right.map do |expr|
+                node_type.new(equal_where_clause_predicate.left, expr)
+              end
               Arel::Nodes::Grouping.new block.call(nodes)
             else
-              node_type.new(r.left, r.right)
+              node_type.new(equal_where_clause_predicate.left, equal_where_clause_predicate.right)
             end
+
+            new_where_clause = s.send(:where_clause_factory).build(new_predicate, equal_where_clause.binds)
+
+            s.where_clause += new_where_clause
           end
         end
       end
@@ -40,4 +53,13 @@ module ActiveRecord
   end
 end
 
-ActiveRecord::QueryMethods::WhereChain.send(:include, ActiveRecord::QueryMethods::Like)
+# Due to some auto-loading related code in active record
+# We must call `ActiveRecord::Relation` before referencing `ActiveRecord::QueryMethods`
+#
+# Otherwise this error will be raised:
+# uninitialized constant ActiveRecord::Relation::QueryMethods (NameError)
+#
+# No idea what should be the proper thing to do
+::ActiveRecord::Relation
+::ActiveRecord::QueryMethods::WhereChain.send(:include, ::ActiveRecord::Like::WhereChainExtensions)
+

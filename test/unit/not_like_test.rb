@@ -5,7 +5,7 @@ describe ActiveRecord::QueryMethods::WhereChain do
     it "creates an Arel DoesNotMatch node in the relation" do
       relation = Post.where.not_like(title: '')
 
-      relation.where_values.first.must_be_instance_of(Arel::Nodes::DoesNotMatch)
+      relation.where_clause.send(:predicates).first.must_be_instance_of(Arel::Nodes::DoesNotMatch)
     end
 
     describe "the Arel Node" do
@@ -13,13 +13,18 @@ describe ActiveRecord::QueryMethods::WhereChain do
         @attribute = "title"
         @value = '%value%'
 
-        @relation_specifier = Post.where.not_like(@attribute => @value).where_values.first
+        relation = Post.where.like(@attribute => @value)
+        @first_predicate  = relation.where_clause.send(:predicates).first
+        @first_bind       = relation.where_clause.send(:binds).first
       end
 
       it "has the attribute as the left operand" do
-        @relation_specifier.left.name.must_equal @attribute
+        @first_predicate.left.name.must_equal @attribute
+      end
+
+      it "has the value as the right operand" do
+        @first_bind.value.must_equal @value
       end
     end
   end
 end
-

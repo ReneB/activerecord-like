@@ -16,3 +16,6 @@ test/tmp
 test/version_tmp
 tmp
 .rvmrc
+
+# Ignore Appraisal related files
+gemfiles/*.gemfile.lock
