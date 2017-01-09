@@ -53,13 +53,8 @@ module ActiveRecord
   end
 end
 
-# Due to some auto-loading related code in active record
-# We must call `ActiveRecord::Relation` before referencing `ActiveRecord::QueryMethods`
-#
-# Otherwise this error will be raised:
-# uninitialized constant ActiveRecord::Relation::QueryMethods (NameError)
-#
-# No idea what should be the proper thing to do
-::ActiveRecord::Relation
-::ActiveRecord::QueryMethods::WhereChain.send(:include, ::ActiveRecord::Like::WhereChainExtensions)
+ActiveSupport.on_load(:active_record) do
+  ActiveRecord.eager_load!
 
+  ActiveRecord::QueryMethods::WhereChain.send(:include, ::ActiveRecord::Like::WhereChainExtensions)
+end
