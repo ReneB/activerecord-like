@@ -7,9 +7,9 @@
 
 [activerecord-like on Github](https://github.com/ReneB/activerecord-like)
 
-An Active Record Plugin that allows chaining a more DSL-style 'like' or 'not-like' query to an ActiveRecord::Base#where. Requires Rails 4 beta or higher.
+An Active Record Plugin that allows chaining a more DSL-style 'like' or 'not-like' query to an ActiveRecord::Base#where. Requires Rails 5 or higher.
 
-This plugin has been salvaged from the stellar work done by @amatsuda and @claudiob. Most of the code was previously in Active Record master, but was subsequently removed due to, amongst other, scope creep.
+This plugin has been salvaged from the stellar work done by @amatsuda and @claudiob, and updated to ActiveRecord 5 by @PikachuEXE. Most of the code was previously in Active Record master, but was subsequently removed due to, amongst other, scope creep.
 Array parameter handling was added by @rzane - thanks!
 
 ## Installation
@@ -43,7 +43,7 @@ Post.where.not_like(title: ["%ruby%", "%rails%"])
 ```
 
 ## Dependencies
-Does not work with Arel 4.0.1 or lower or Arel 5.0.0. Do a `bundle update arel` to get the latest Arel that is compatible with your ActiveRecord version (4.0 for ActiveRecord 4.0, 5.0 for ActiveRecord 4.1).
+ActiveRecord 5 or higher
 
 ## Contributing
 
