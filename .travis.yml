@@ -4,9 +4,10 @@ sudo: false
 language: ruby
 cache: bundler
 rvm:
-  - 2.2.6
-  - 2.3.3
-  - 2.4.0
+  - 2.2.8
+  - 2.3.6
+  - 2.4.3
+  - 2.5.0
   - ruby-head
 env:
   - DB=pg
@@ -14,6 +15,7 @@ env:
   - DB=mysql
 gemfile:
   - gemfiles/rails_5_0.gemfile
+  - gemfiles/rails_5_1.gemfile
 before_script:
   - psql -c 'create database activerecord_like_test' -U postgres
   - mysql -e 'create database activerecord_like_test'
