@@ -9,7 +9,7 @@
 
 An Active Record Plugin that allows chaining a more DSL-style 'like' or 'not-like' query to an ActiveRecord::Base#where. Requires Rails 5 or higher.
 
-This plugin has been salvaged from the stellar work done by @amatsuda and @claudiob, and updated to ActiveRecord 5 by @PikachuEXE. Most of the code was previously in Active Record master, but was subsequently removed due to, amongst other, scope creep (see discussion [here](https://github.com/rails/rails/commit/8d02afeaee8993bd0fde69687fdd9bf30921e805)).
+This plugin has been salvaged from the stellar work done by @amatsuda and @claudiob, and updated to ActiveRecord 5 by @PikachuEXE and 5.2 by @robotdana. Most of the code was previously in Active Record master, but was subsequently removed due to, amongst other, scope creep (see discussion [here](https://github.com/rails/rails/commit/8d02afeaee8993bd0fde69687fdd9bf30921e805)).
 Array parameter handling was added by @rzane - thanks!
 
 ## Installation
