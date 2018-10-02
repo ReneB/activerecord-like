@@ -16,6 +16,7 @@ env:
 gemfile:
   - gemfiles/rails_5_0.gemfile
   - gemfiles/rails_5_1.gemfile
+  - gemfiles/rails_5_2.gemfile
 before_script:
   - psql -c 'create database activerecord_like_test' -U postgres
   - mysql -e 'create database activerecord_like_test'

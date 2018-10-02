@@ -47,7 +47,11 @@ module ActiveRecord
             # Will lose the binding values since 5.1
             # due to this PR
             # https://github.com/rails/rails/pull/26073
-            new_where_clause = Relation::WhereClause.new([new_predicate], equal_where_clause.binds)
+            new_where_clause = if equal_where_clause.respond_to?(:binds)
+              Relation::WhereClause.new([new_predicate], equal_where_clause.binds)
+            else
+              Relation::WhereClause.new([new_predicate])
+            end
 
             s.where_clause += new_where_clause
           end

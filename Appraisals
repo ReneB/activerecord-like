@@ -1,7 +1,5 @@
-appraise "rails_5_0" do
-  gem "activerecord", "~> 5.0.0"
-end
-
-appraise "rails_5_1" do
-  gem "activerecord", "~> 5.1.0"
+("5.0".."5.2").each do |version|
+  appraise "rails_#{version.tr('.', '_')}" do
+    gem "activerecord", "~> #{version}"
+  end
 end
