@@ -14,23 +14,9 @@ env:
   - DB=sqlite3
   - DB=mysql
 gemfile:
-  - gemfiles/rails_5_0_0.gemfile
-  - gemfiles/rails_5_0_1.gemfile
-  - gemfiles/rails_5_0_2.gemfile
-  - gemfiles/rails_5_0_3.gemfile
-  - gemfiles/rails_5_0_4.gemfile
-  - gemfiles/rails_5_0_5.gemfile
-  - gemfiles/rails_5_0_6.gemfile
-  - gemfiles/rails_5_0_7.gemfile
-  - gemfiles/rails_5_1_0.gemfile
-  - gemfiles/rails_5_1_1.gemfile
-  - gemfiles/rails_5_1_2.gemfile
-  - gemfiles/rails_5_1_3.gemfile
-  - gemfiles/rails_5_1_4.gemfile
-  - gemfiles/rails_5_1_5.gemfile
-  - gemfiles/rails_5_1_6.gemfile
-  - gemfiles/rails_5_2_0.gemfile
-  - gemfiles/rails_5_2_1.gemfile
+  - gemfiles/rails_5_0.gemfile
+  - gemfiles/rails_5_1.gemfile
+  - gemfiles/rails_5_2.gemfile
 before_script:
   - psql -c 'create database activerecord_like_test' -U postgres
   - mysql -e 'create database activerecord_like_test'
