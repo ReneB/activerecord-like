@@ -3,6 +3,9 @@
 sudo: false
 language: ruby
 cache: bundler
+services:
+  - postgresql
+  - mysql
 rvm:
   - 2.2.8
   - 2.3.6
