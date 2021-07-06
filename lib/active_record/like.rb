@@ -31,7 +31,13 @@ module ActiveRecord
             # 1. Build a where clause to generate "predicates" & "binds"
             # 2. Convert "predicates" into the one that matches `node_type` (like/not like)
             # 3. Re-use binding values to create new where clause
-            equal_where_clause = s.send(:where_clause_factory).build({key => value}, rest)
+            equal_where_clause = if s.respond_to?(:where_clause_factory, true)
+              # ActiveRecord 5.0 to 6.0
+              s.send(:where_clause_factory).build({key => value}, rest)
+            else
+              # ActiveRecord 6.1, maybe higher
+              s.send(:build_where_clause, {key => value}, rest)
+            end
             equal_where_clause_predicate = equal_where_clause.send(:predicates).first
 
             new_predicate = if equal_where_clause_predicate.right.is_a?(Array)
