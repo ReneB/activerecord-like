@@ -92,9 +92,7 @@ else
   include Test::SQLite3
 end
 
-unless ENV['TRAVIS'] # if we're running on Travis, no drop/create needed
-  drop_and_create_database
-end
+drop_and_create_database
 
 connect_db
 

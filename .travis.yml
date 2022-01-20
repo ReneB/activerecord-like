@@ -18,9 +18,6 @@ env:
 gemfile:
   - gemfiles/rails_6_0.gemfile
   - gemfiles/rails_6_1.gemfile
-before_script:
-  - psql -c 'create database activerecord_like_test' -U postgres
-  - mysql -e 'create database activerecord_like_test'
 matrix:
   fast_finish: true
   allow_failures:
