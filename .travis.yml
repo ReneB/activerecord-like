@@ -7,7 +7,9 @@ services:
   - postgresql
   - mysql
 rvm:
-  - 2.5.0
+  - 2.7.5
+  - 3.0.3
+  - 3.1.0
   - ruby-head
 env:
   - DB=pg
