@@ -15,7 +15,7 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
 
-  gem.add_dependency             "activerecord", ">= 5.0.0"
+  gem.add_dependency             "activerecord", "~> 7.0",  ">= 7.0.0"
 
   # Required for Travis build to pass
   gem.add_development_dependency "pg"
