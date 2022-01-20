@@ -18,8 +18,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency             "activerecord", ">= 5.0.0"
 
   # Required for Travis build to pass
-  # pg 1.x not supported in all AR versions
-  gem.add_development_dependency "pg", "< 1.0.0"
+  gem.add_development_dependency "pg"
   gem.add_development_dependency "mysql2"
   gem.add_development_dependency "sqlite3"
 
