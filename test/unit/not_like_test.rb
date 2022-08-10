@@ -25,6 +25,9 @@ describe ActiveRecord::QueryMethods::WhereChain do
         # Rails 5.0 & 5.1
         first_bind = if @relation.where_clause.respond_to?(:binds)
           @relation.where_clause.send(:binds).first
+        elsif @first_predicate.right.value.is_a?(String)
+          # Rails 7.0+
+          @first_predicate.right
         else
           # Rails 5.2
           @first_predicate.right.value
