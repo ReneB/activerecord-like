@@ -19,6 +19,7 @@ env:
 gemfile:
   - gemfiles/rails_6_0.gemfile
   - gemfiles/rails_6_1.gemfile
+  - gemfiles/rails_7_0.gemfile
 matrix:
   fast_finish: true
   allow_failures:
