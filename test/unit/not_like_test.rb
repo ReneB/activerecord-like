@@ -22,19 +22,19 @@ describe ActiveRecord::QueryMethods::WhereChain do
       end
 
       it "has the value as the right operand" do
-        # Rails 5.0 & 5.1
+        # ActiveRecord 5.0 & 5.1
         first_bind = if @relation.where_clause.respond_to?(:binds)
           @relation.where_clause.send(:binds).first
         else
-          # Rails 5.2+
+          # ActiveRecord 5.2+
           @first_predicate.right.value
         end
 
         first_bind_value = if first_bind.respond_to?(:value)
-          # Rails 5 & 6
+          # ActiveRecord 5 & 6
           first_bind.value
         else
-          # Rails 7.0
+          # ActiveRecord 7.0
           first_bind
         end
 
