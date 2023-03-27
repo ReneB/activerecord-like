@@ -5,7 +5,7 @@ describe ActiveRecord::QueryMethods::WhereChain do
     it "creates an Arel Matches node in the relation" do
       relation = Post.where.like(title: '')
 
-      relation.where_clause.send(:predicates).first.must_be_instance_of(Arel::Nodes::Matches)
+      _(relation.where_clause.send(:predicates).first).must_be_instance_of(Arel::Nodes::Matches)
     end
 
     describe "the Arel Node" do
@@ -18,7 +18,7 @@ describe ActiveRecord::QueryMethods::WhereChain do
       end
 
       it "has the attribute as the left operand" do
-        @first_predicate.left.name.must_equal @attribute
+        _(@first_predicate.left.name).must_equal @attribute
       end
 
       it "has the value as the right operand" do
@@ -30,7 +30,7 @@ describe ActiveRecord::QueryMethods::WhereChain do
           @first_predicate.right.value
         end
 
-        first_bind.value.must_equal @value
+        _(first_bind.value).must_equal @value
       end
     end
   end
