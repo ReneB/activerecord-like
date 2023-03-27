@@ -35,7 +35,7 @@ module ActiveRecord
               # ActiveRecord 5.0 to 6.0
               s.send(:where_clause_factory).build({key => value}, rest)
             else
-              # ActiveRecord 6.1, maybe higher
+              # ActiveRecord 6.1, 7.0, maybe higher
               s.send(:build_where_clause, {key => value}, rest)
             end
             equal_where_clause_predicate = equal_where_clause.send(:predicates).first
