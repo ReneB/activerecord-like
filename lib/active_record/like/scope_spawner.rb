@@ -2,7 +2,7 @@ module ActiveRecord
   module Like
     module ScopeSpawners
       module Shared
-        module Rails71AndBelowSpawner
+        module Rails7AndBelowSpawner
           private
 
           def chain_node(node_type, &block)
@@ -102,7 +102,7 @@ module ActiveRecord
 
         # :nodoc:
         class Rails71AndBelowSpawner < AbstractSpawner
-          include Shared::Rails71AndBelowSpawner
+          include Shared::Rails7AndBelowSpawner
 
           # :nodoc:
           def spawn
@@ -118,9 +118,28 @@ module ActiveRecord
           end
         end
 
+        # :nodoc:
+        class Rails72Spawner < AbstractSpawner
+          include Shared::Rails7AndBelowSpawner
+
+          # :nodoc:
+          def spawn
+            opts.each do |k,v|
+              if v.is_a?(Array) && v.empty?
+                opts[k] = ''
+              end
+            end
+
+            chain_node(Arel::Nodes::Matches) do |nodes|
+              Arel::Nodes::Or.new(nodes)
+            end
+          end
+        end
+
         RAILS_VERSION_TO_SPAWNER_CLASS_MAPPINGS = {
           "7.0" => Rails71AndBelowSpawner,
           "7.1" => Rails71AndBelowSpawner,
+          "7.2" => Rails72Spawner,
         }.freeze
         private_constant :RAILS_VERSION_TO_SPAWNER_CLASS_MAPPINGS
       end
@@ -178,7 +197,7 @@ module ActiveRecord
 
         # :nodoc:
         class Rails71AndBelowSpawner < AbstractSpawner
-          include Shared::Rails71AndBelowSpawner
+          include Shared::Rails7AndBelowSpawner
 
           # :nodoc:
           def spawn
@@ -192,6 +211,7 @@ module ActiveRecord
         RAILS_VERSION_TO_SPAWNER_CLASS_MAPPINGS = {
           "7.0" => Rails71AndBelowSpawner,
           "7.1" => Rails71AndBelowSpawner,
+          "7.2" => Rails71AndBelowSpawner,
         }.freeze
         private_constant :RAILS_VERSION_TO_SPAWNER_CLASS_MAPPINGS
       end
