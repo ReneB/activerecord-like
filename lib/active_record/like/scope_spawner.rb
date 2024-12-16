@@ -140,6 +140,7 @@ module ActiveRecord
           "7.0" => Rails71AndBelowSpawner,
           "7.1" => Rails71AndBelowSpawner,
           "7.2" => Rails72Spawner,
+          "8.0" => Rails72Spawner,
         }.freeze
         private_constant :RAILS_VERSION_TO_SPAWNER_CLASS_MAPPINGS
       end
@@ -212,6 +213,7 @@ module ActiveRecord
           "7.0" => Rails71AndBelowSpawner,
           "7.1" => Rails71AndBelowSpawner,
           "7.2" => Rails71AndBelowSpawner,
+          "8.0" => Rails71AndBelowSpawner,
         }.freeze
         private_constant :RAILS_VERSION_TO_SPAWNER_CLASS_MAPPINGS
       end
