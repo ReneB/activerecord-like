@@ -7,7 +7,7 @@
 
 [activerecord-like on Github](https://github.com/ReneB/activerecord-like)
 
-An Active Record Plugin that allows chaining a more DSL-style 'like' or 'not-like' query to an ActiveRecord::Base#where. Requires Rails 5 or higher.
+An Active Record Plugin that allows chaining a more DSL-style 'like' or 'not-like' query to an ActiveRecord::Base#where. Requires ActiveRecord 5 or higher.
 
 ## Status
 
