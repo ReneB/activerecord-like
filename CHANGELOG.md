@@ -18,6 +18,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Nothing
 
 
+## [7.0.1] - 2024-12-17
+
+### Added
+
+- Support Rails 8.x
+
+
 ## 7.0.0 - 2022-01-20
 
 ### Added
@@ -25,4 +32,5 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Support Rails 7.x
 
 
-[Unreleased]: https://github.com/PikachuEXE/where_lower/compare/v7.0.0...HEAD
+[Unreleased]: https://github.com/PikachuEXE/where_lower/compare/v7.0.1...HEAD
+[7.0.1]: https://github.com/PikachuEXE/where_lower/compare/v7.0.0...v7.0.1
