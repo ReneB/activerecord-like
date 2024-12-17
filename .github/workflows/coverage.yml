@@ -43,7 +43,7 @@ jobs:
           bundler-cache: true
 
       - name: Collect coverage info
-        run: bundle exec rake spec
+        run: bundle exec rake test
 
       - name: Coveralls Parallel
         uses: coverallsapp/github-action@master

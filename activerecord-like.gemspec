@@ -27,4 +27,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency "minitest", ">= 3"
 
   gem.add_development_dependency "appraisal", "~> 2.0"
+
+  gem.add_development_dependency "simplecov", ">= 0.22"
+  gem.add_development_dependency "simplecov-lcov", ">= 0.8"
 end
