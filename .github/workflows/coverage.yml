@@ -6,11 +6,13 @@ on:
       - development
     paths-ignore:
       - 'README.md'
+      - 'CHANGELOG.md'
   push:
     branches:
       - development
     paths-ignore:
       - 'README.md'
+      - 'CHANGELOG.md'
 
 jobs:
   coverage:
