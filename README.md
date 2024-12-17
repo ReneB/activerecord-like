@@ -1,11 +1,14 @@
 # ActiveRecord::Like
 
-[![Build Status](https://travis-ci.org/ReneB/activerecord-like.png?branch=master)](https://travis-ci.org/ReneB/activerecord-like)
-[![Code Climate](https://codeclimate.com/github/ReneB/activerecord-like.png)](https://codeclimate.com/github/ReneB/activerecord-like)
-[![Dependency Status](https://gemnasium.com/ReneB/activerecord-like.png)](https://gemnasium.com/ReneB/activerecord-like)
-[![Gem Version](https://badge.fury.io/rb/activerecord-like.png)](http://badge.fury.io/rb/activerecord-like)
+[![GitHub Build Status](https://img.shields.io/github/actions/workflow/status/PikachuEXE/activerecord-like/tests.yaml?branch=development&style=flat-square)](https://github.com/PikachuEXE/activerecord-like/actions/workflows/tests.yaml)
 
-[activerecord-like on Github](https://github.com/ReneB/activerecord-like)
+[![Gem Version](http://img.shields.io/gem/v/activerecord-like.svg?style=flat-square)](http://badge.fury.io/rb/activerecord-like)
+[![License](https://img.shields.io/github/license/PikachuEXE/activerecord-like.svg?style=flat-square)](http://badge.fury.io/rb/activerecord-like)
+
+[![Coverage Status](http://img.shields.io/coveralls/PikachuEXE/activerecord-like.svg?style=flat-square)](https://coveralls.io/r/PikachuEXE/activerecord-like)
+[![Code Climate](https://img.shields.io/codeclimate/maintainability/PikachuEXE/activerecord-like.svg?style=flat-square)](https://codeclimate.com/github/PikachuEXE/activerecord-like)
+
+[activerecord-like on Github](https://github.com/PikachuEXE/activerecord-like)
 
 An Active Record Plugin that allows chaining a more DSL-style 'like' or 'not-like' query to an ActiveRecord::Base#where. Requires Rails 5 or higher.
 
