@@ -9,16 +9,8 @@
 
 An Active Record Plugin that allows chaining a more DSL-style 'like' or 'not-like' query to an ActiveRecord::Base#where. Requires Rails 5 or higher.
 
-## Status
-
-This repo will no longer be the canonical repo for ActiveRecord::Like; the ownership of the gem has been transferred to @PikachuEXE which makes [this](https://github.com/PikachuEXE/activerecord-like) the official repository. 
-
-## History and credits
-
-This plugin was originally salvaged from the stellar work done by @amatsuda and @claudiob.
-* Most of the code was previously in Active Record master, but was subsequently removed due to, amongst other, scope creep (see discussion [here](https://github.com/rails/rails/commit/8d02afeaee8993bd0fde69687fdd9bf30921e805)).
-* It was updated to ActiveRecord 5 by @PikachuEXE, then to ActiveRecord 5.2 by @robotdana and to ActiveRecord 6.1 by @nrw505.
-* Array parameter handling was added by @rzane - thanks!
+This plugin has been salvaged from the stellar work done by @amatsuda and @claudiob, updated to ActiveRecord 5 by @PikachuEXE and 5.2 by @robotdana and then to ActiveRecord 6.1 by @nrw505. Most of the code was previously in Active Record master, but was subsequently removed due to, amongst other, scope creep (see discussion [here](https://github.com/rails/rails/commit/8d02afeaee8993bd0fde69687fdd9bf30921e805)).
+Array parameter handling was added by @rzane - thanks!
 
 ## Installation
 
