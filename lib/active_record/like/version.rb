@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 module ActiveRecord
   module Like
-    VERSION = "6.1.dev"
+    VERSION = "7.0.1"
   end
 end

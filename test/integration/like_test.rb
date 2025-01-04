@@ -12,7 +12,7 @@ describe ActiveRecord::QueryMethods::WhereChain do
     end
 
     it "finds records with attributes matching the criteria" do
-      Post.where.like(title: '%there?').map(&:id).must_include 2
+      _(Post.where.like(title: '%there?').map(&:id)).must_include 2
     end
 
     it "is case-insensitive" do
@@ -21,30 +21,30 @@ describe ActiveRecord::QueryMethods::WhereChain do
       lowercase_posts = Post.where.like(title: search_term)
       uppercase_posts = Post.where.like(title: search_term.upcase)
 
-      lowercase_posts.map(&:id).must_equal(uppercase_posts.map(&:id))
+      _(lowercase_posts.map(&:id)).must_equal(uppercase_posts.map(&:id))
     end
 
     it "is chainable" do
       Post.where.like(title: '%there?').order(:title).update_all(title: 'some title')
 
-      Post.find(2).title.must_equal('some title')
+      _(Post.find(2).title).must_equal('some title')
     end
 
     it "does not find records with attributes not matching the criteria" do
-      Post.where.like(title: '%this title is not used anywhere%').map(&:id).wont_include 2
+      _(Post.where.like(title: '%this title is not used anywhere%').map(&:id)).wont_include 2
     end
 
     describe "array behavior" do
       it "finds records with attributes matching multiple criteria" do
-        Post.where.like(title: ['%DSLs%', 'We need some%']).map(&:id).must_equal [1, 2]
+        _(Post.where.like(title: ['%DSLs%', 'We need some%']).map(&:id)).must_equal [1, 2]
       end
 
       it "finds records with attributes matching one criterion" do
-        Post.where.like(title: ['%there?']).map(&:id).must_equal [2]
+        _(Post.where.like(title: ['%there?']).map(&:id)).must_equal [2]
       end
 
       it "does not find any records with an empty array" do
-        Post.where.like(title: []).must_be_empty
+        _(Post.where.like(title: [])).must_be_empty
       end
     end
 
@@ -57,15 +57,15 @@ describe ActiveRecord::QueryMethods::WhereChain do
       # Interpolating input strings into LIKE queries is an all-too-common
       # mistake that is prevented by the syntax this plugin provides
       it "is possible to inject SQL into literal query strings" do
-        Post.where("title LIKE '%#{@user_input}%'").count.must_equal(2)
+        _(Post.where("title LIKE '%#{@user_input}%'").count).must_equal(2)
       end
 
       it "prevents SQL injection" do
-        Post.where.like(title: @user_input).count.must_equal(0)
+        _(Post.where.like(title: @user_input).count).must_equal(0)
       end
 
       it "prevents SQL injection when provided an array" do
-        Post.where.like(title: [@user_input]).count.must_equal(0)
+        _(Post.where.like(title: [@user_input]).count).must_equal(0)
       end
     end
   end

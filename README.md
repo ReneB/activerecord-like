@@ -1,16 +1,23 @@
 # ActiveRecord::Like
 
-[![Build Status](https://travis-ci.org/ReneB/activerecord-like.png?branch=master)](https://travis-ci.org/ReneB/activerecord-like)
-[![Code Climate](https://codeclimate.com/github/ReneB/activerecord-like.png)](https://codeclimate.com/github/ReneB/activerecord-like)
-[![Dependency Status](https://gemnasium.com/ReneB/activerecord-like.png)](https://gemnasium.com/ReneB/activerecord-like)
-[![Gem Version](https://badge.fury.io/rb/activerecord-like.png)](http://badge.fury.io/rb/activerecord-like)
+[![GitHub Build Status](https://img.shields.io/github/actions/workflow/status/PikachuEXE/activerecord-like/tests.yaml?branch=development&style=flat-square)](https://github.com/PikachuEXE/activerecord-like/actions/workflows/tests.yaml)
 
-[activerecord-like on Github](https://github.com/ReneB/activerecord-like)
+[![Gem Version](http://img.shields.io/gem/v/activerecord-like.svg?style=flat-square)](http://badge.fury.io/rb/activerecord-like)
+[![License](https://img.shields.io/github/license/PikachuEXE/activerecord-like.svg?style=flat-square)](http://badge.fury.io/rb/activerecord-like)
+
+[![Coverage Status](http://img.shields.io/coveralls/PikachuEXE/activerecord-like.svg?style=flat-square)](https://coveralls.io/r/PikachuEXE/activerecord-like)
+[![Code Climate](https://img.shields.io/codeclimate/maintainability/PikachuEXE/activerecord-like.svg?style=flat-square)](https://codeclimate.com/github/PikachuEXE/activerecord-like)
+
+[activerecord-like on Github](https://github.com/PikachuEXE/activerecord-like)
 
 An Active Record Plugin that allows chaining a more DSL-style 'like' or 'not-like' query to an ActiveRecord::Base#where. Requires Rails 5 or higher.
 
-This plugin has been salvaged from the stellar work done by @amatsuda and @claudiob, updated to ActiveRecord 5 by @PikachuEXE and 5.2 by @robotdana and then to ActiveRecord 6.1 by @nrw505. Most of the code was previously in Active Record master, but was subsequently removed due to, amongst other, scope creep (see discussion [here](https://github.com/rails/rails/commit/8d02afeaee8993bd0fde69687fdd9bf30921e805)).
-Array parameter handling was added by @rzane - thanks!
+## History and credits
+
+This plugin was originally salvaged from the stellar work done by @amatsuda and @claudiob.
+* Most of the code was previously in Active Record master, but was subsequently removed due to, amongst other, scope creep (see discussion [here](https://github.com/rails/rails/commit/8d02afeaee8993bd0fde69687fdd9bf30921e805)).
+* It was updated to ActiveRecord 5 by @PikachuEXE, then to ActiveRecord 5.2 by @robotdana and to ActiveRecord 6.1 by @nrw505.
+* Array parameter handling was added by @rzane - thanks!
 
 ## Installation
 
