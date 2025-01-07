@@ -20,7 +20,11 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
 
-  gem.metadata["changelog_uri"] = "#{gem.homepage}/blob/master/CHANGELOG.md"
+  gem.metadata = {
+    "bug_tracker_uri"   => "#{gem.homepage}/issues",
+    "changelog_uri"     => "#{gem.homepage}/blob/master/CHANGELOG.md",
+    "source_code_uri"   => gem.homepage,
+  }
 
   gem.add_dependency             "activerecord", ">= 7.0.0", "< 9.0"
 
